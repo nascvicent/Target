@@ -6,35 +6,31 @@ public class Fibonacci {
 
 
         if (n == 0) {
-            return "0 pertence";
+            return "0 pertence à Fibonacci.";
         } else if (n == 1) {
-            return "1 pertence";
+            return "1 pertence à Fibonacci.";
         }
 
 
-        int[] listaFibo = new int[n + 1];
-        listaFibo[0] = 0;
-        listaFibo[1] = 1;
+        int a = 0;
+        int b = 1;
 
 
-        for (int i = 2; i <= n; i++) {
-            listaFibo[i] = listaFibo[i - 1] + listaFibo[i - 2];
-        }
+        for (int i = 2; ; i++) {
+            int fib = a + b;
 
+            if (fib == n) {
+                return n + " pertence à Fibonacci.";
+            }
 
-        boolean pertence = false;
-        for (int i = 0; i <= n; i++) {
-            System.out.println(listaFibo[i]);
-            if (n == listaFibo[i]) {
-                pertence = true;
+            if (fib > n) {
                 break;
             }
+
+            a = b;
+            b = fib;
         }
 
-        if (pertence) {
-            return n + " pertence à Fibonacci.";
-        } else {
-            return n + " não pertence à Fibonacci.";
-        }
+        return n + " não pertence à Fibonacci.";
     }
 }
